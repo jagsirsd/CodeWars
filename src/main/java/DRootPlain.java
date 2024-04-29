@@ -7,7 +7,7 @@ public class DRootPlain {
             int sum = 0;
             while(number / 10 >= 1) {
                 sum += number %10;
-                number = (int) number/10;
+                number = number/10;
             }
             sum += number;
             number = sum;
@@ -18,7 +18,7 @@ public class DRootPlain {
     public static int[] parse(String data) {
         int index = 0;
         int[] out = new int[data.length()];
-        Integer num = 0;
+        int num = 0;
         for(char c : data.toCharArray()) {
             switch(c) {
                 case 'i':
@@ -35,7 +35,7 @@ public class DRootPlain {
                     break;
                 default:
                     break;
-            };
+            }
 
         }
         return Arrays.copyOf(out, index);

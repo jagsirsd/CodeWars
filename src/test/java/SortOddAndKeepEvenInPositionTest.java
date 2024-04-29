@@ -1,20 +1,14 @@
-import junit.framework.TestCase;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
 import java.util.Random;
-import org.junit.Test;
+
 import static java.lang.Math.log;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-
-public class SortOddAndKeepEvenInPositionTest extends TestCase {
+public class SortOddAndKeepEvenInPositionTest {
 
     @Test
     public void testROT13() {
@@ -24,8 +18,8 @@ public class SortOddAndKeepEvenInPositionTest extends TestCase {
 
     @Test
     public void testBasic() {
-        assertFalse("9 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(9));
-        assertFalse("0  is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(0));
+        assertFalse(SortOddAndKeepEvenInPosition.isPrime(9), "9 is not SortOddAndKeepEvenInPosition");
+        assertFalse(SortOddAndKeepEvenInPosition.isPrime(0), "0  is not SortOddAndKeepEvenInPosition");
 //            assertFalse("1  is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(1));
 //            assertTrue ("2  is SortOddAndKeepEvenInPosition",     SortOddAndKeepEvenInPosition.isPrime(2));
 //            assertTrue ("73 is SortOddAndKeepEvenInPosition",     SortOddAndKeepEvenInPosition.isPrime(73));
@@ -47,7 +41,7 @@ public class SortOddAndKeepEvenInPositionTest extends TestCase {
 //            assertFalse("4 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(4));
 //            assertFalse("6 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(6));
 //            assertFalse("8 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(8));
-        assertFalse("9 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(9));
+        assertFalse(SortOddAndKeepEvenInPosition.isPrime(9), "9 is not SortOddAndKeepEvenInPosition");
 //            assertFalse("45 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(45));
 //            assertFalse("-5 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(-5));
 //            assertFalse("-8 is not SortOddAndKeepEvenInPosition", SortOddAndKeepEvenInPosition.isPrime(-8));
@@ -56,56 +50,65 @@ public class SortOddAndKeepEvenInPositionTest extends TestCase {
 
     @Test
     public void test0() {
-        assertNull("0 is not a perfect number", SortOddAndKeepEvenInPosition.isPerfectPower(0));
+        assertNull(SortOddAndKeepEvenInPosition.isPerfectPower(0), "0 is not a perfect number");
     }
 
     @Test
     public void test1() {
-        assertNull("1 is not a perfect number", SortOddAndKeepEvenInPosition.isPerfectPower(1));
+        //"1 is not a perfect number",
+        assertNull( SortOddAndKeepEvenInPosition.isPerfectPower(1));
     }
 
     @Test
     public void test2() {
-        assertNull("2 is not a perfect number", SortOddAndKeepEvenInPosition.isPerfectPower(2));
+        //"2 is not a perfect number",
+        assertNull( SortOddAndKeepEvenInPosition.isPerfectPower(2));
     }
 
     @Test
     public void test3() {
-        assertNull("3 is not a perfect number", SortOddAndKeepEvenInPosition.isPerfectPower(3));
+        //"3 is not a perfect number",
+        assertNull( SortOddAndKeepEvenInPosition.isPerfectPower(3));
     }
 
     @Test
     public void test4() {
-        assertArrayEquals("4 = 2^2", new int[]{2,2}, SortOddAndKeepEvenInPosition.isPerfectPower(4));
+        assertArrayEquals(new int[]{2,2}, SortOddAndKeepEvenInPosition.isPerfectPower(4), "4 = 2^2");
     }
 
     @Test
     public void test5() {
-        assertNull("5 is not a perfect power", SortOddAndKeepEvenInPosition.isPerfectPower(5));
+        //"5 is not a perfect power",
+        assertNull( SortOddAndKeepEvenInPosition.isPerfectPower(5));
     }
 
     @Test
     public void test8() {
-        assertArrayEquals("8 = 2^3", new int[]{2,3}, SortOddAndKeepEvenInPosition.isPerfectPower(8));
+        //"8 = 2^3",
+        Assertions.assertArrayEquals( new int[]{2,3}, SortOddAndKeepEvenInPosition.isPerfectPower(8));
     }
 
     @Test
     public void test9() {
-        assertArrayEquals("9 = 3^2", new int[]{3,2}, SortOddAndKeepEvenInPosition.isPerfectPower(9));
+        //"9 = 3^2",
+        assertArrayEquals( new int[]{3,2}, SortOddAndKeepEvenInPosition.isPerfectPower(9));
     }
     @Test
     public void test225() {
-        assertArrayEquals("9 = 3^2", new int[]{15,2}, SortOddAndKeepEvenInPosition.isPerfectPower(225));
+        assertArrayEquals( new int[]{15,2}, SortOddAndKeepEvenInPosition.isPerfectPower(225));
     }
     @Test
     public void test10503459() {
-        assertArrayEquals("9 = 3^2", new int[]{219, 3}, SortOddAndKeepEvenInPosition.isPerfectPower(10503459));
+        assertArrayEquals( new int[]{219, 3}, SortOddAndKeepEvenInPosition.isPerfectPower(10503459));
     }
 
     @Test
     public void testUpTo500() {
         int[] pp = {4, 8, 9, 16, 25, 27, 32, 36, 49, 64, 81, 100, 121, 125, 128, 144, 169, 196, 216, 225, 243, 256, 289, 324, 343, 361, 400, 441, 484};
-        for (int i: pp) assertNotNull(i+" is a perfect power", SortOddAndKeepEvenInPosition.isPerfectPower(i));
+        for (int i: pp) {
+            //i+" is a perfect power",
+            assertNotNull(SortOddAndKeepEvenInPosition.isPerfectPower(i));
+        }
     }
 
     @Test
@@ -116,8 +119,10 @@ public class SortOddAndKeepEvenInPositionTest extends TestCase {
             int k = (int)(rnd.nextDouble()*(log(Integer.MAX_VALUE)/log(m)-2.0)+2.0);
             int l = ipow(m, k);
             int[] r = SortOddAndKeepEvenInPosition.isPerfectPower(l);
-            assertNotNull(l+" is a perfect power", r);
-            assertEquals(r[0]+"^"+r[1]+"!="+l, l, ipow(r[0], r[1]));
+            //l+" is a perfect power",
+            assertNotNull( r);
+            //r[0]+"^"+r[1]+"!="+l,
+            assertEquals( l, ipow(r[0], r[1]));
         }
     }
 
@@ -127,7 +132,10 @@ public class SortOddAndKeepEvenInPositionTest extends TestCase {
         for (int i = 0; i < 100; i++) {
             int l = rnd.nextInt(Integer.MAX_VALUE);
             int[] r = SortOddAndKeepEvenInPosition.isPerfectPower(l);
-            if (r != null) assertEquals(r[0]+"^"+r[1]+"!="+l, l, ipow(r[0], r[1]));
+            if (r != null) {
+                //r[0]+"^"+r[1]+"!="+l,
+                assertEquals( l, ipow(r[0], r[1]));
+            }
         }
     }
 
